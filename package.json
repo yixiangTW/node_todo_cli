@@ -1,8 +1,8 @@
 {
   "name": "new_node_todo_cli",
-  "version": "0.1.1",
+  "version": "1.1.3",
   "description": "",
-  "files": ["*."],
+  "files": ["cli.", "db.js", "index.js"],
   "bin": {
     "todo": "cli.js"
   },

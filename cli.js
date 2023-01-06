@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const { program } = require('commander')
-const api = require('./index')
+const api = require('./index.js')
 
 program.option('-d, --debug', 'output extra debugging')
 
