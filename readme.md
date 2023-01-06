@@ -3,7 +3,7 @@ todo -h
 Usage: cli [options] [command]   
 
 Options:   
-  -d, --debug     output extra debugging   
+  -V, --version   output the version number   
   -h, --help      display help for command   
 
 Commands:   
