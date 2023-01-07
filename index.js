@@ -8,7 +8,7 @@ const add = async (title) => {
     title,
     done: false
   })
-  await db.write(list)
+  return await db.write(list)
 }
 
 const clear = async () => {

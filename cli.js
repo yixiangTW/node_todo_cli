@@ -10,7 +10,7 @@ program
   .command('add <taskName>')
   .description('add a task')
   .action((taskName) => {
-    api.add(taskName)
+    api.add(taskName).then(console.log)
   })
 program
   .command('clear')
