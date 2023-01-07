@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const { program } = require('commander')
-const api = require('./index.js')
+const api = require('./index')
 const pkg = require('./package.json')
 
 program.version(pkg.version)
@@ -9,7 +9,7 @@ program.version(pkg.version)
 program
   .command('add <taskName>')
   .description('add a task')
-  .action((taskName) => {
+  .action((taskName: any) => {
     api.add(taskName).then(console.log)
   })
 program

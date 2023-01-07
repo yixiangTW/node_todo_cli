@@ -1,9 +1,9 @@
-const db = require('./db.js')
+const db = require('./db.ts')
 
 const inquirer = require('inquirer')
 
-const add = async (title) => {
-  const list = await db.read()
+const add = async (title: any) => {
+  const list: any = await db.read()
   list.push({
     title,
     done: false
@@ -20,33 +20,33 @@ const showAll = async () => {
   printTasks(list)
 }
 
-function askForCreateTask (list) {
+function askForCreateTask (list: any) {
   inquirer.prompt([{
     type: 'input',
     name: 'title',
     message: 'Input task title'
   }]).then(({
     title
-  }) => {
+  }: any) => {
     list.push({ title, done: false })
     db.write(list)
   })
 }
 
-const actionTable = {
-  markAsDone: (index, list) => {
+const actionTable: any = {
+  markAsDone: (index: any, list: any) => {
     list[index].done = true
     db.write(list)
   },
-  markAdUnDone: (index, list) => {
+  markAdUnDone: (index: any, list: any) => {
     list[index].done = false
     db.write(list)
   },
-  remove: (index, list) => {
+  remove: (index: any, list: any) => {
     list.splice(index, 1)
     db.write(list)
   },
-  updateTitle: (index, list) => {
+  updateTitle: (index: any, list: any) => {
     inquirer.prompt([{
       type: 'input',
       name: 'title',
@@ -54,14 +54,14 @@ const actionTable = {
       default: list[index].title
     }]).then(({
       title
-    }) => {
+    }: any) => {
       list[index].title = title
       db.write(list)
     })
   }
 }
 
-function askForChooseExistTask (index, list) {
+function askForChooseExistTask (index: any, list: any) {
   inquirer
     .prompt([{
       type: 'list',
@@ -85,12 +85,12 @@ function askForChooseExistTask (index, list) {
       }]
     }]).then(({
       action
-    }) => {
+    }: any) => {
       return actionTable[action] ? actionTable[action](index, list) : null
     })
 }
 
-function askForAction (index, list) {
+function askForAction (index: any, list: any) {
   if (index >= 0) {
     askForChooseExistTask(index, list)
   }
@@ -99,7 +99,7 @@ function askForAction (index, list) {
   }
 }
 
-function printTasks (list) {
+function printTasks (list: any) {
   inquirer
     .prompt([{
       type: 'list',
@@ -108,7 +108,7 @@ function printTasks (list) {
       choices: [{
         name: 'exit',
         value: -1
-      }, ...list.map((task, index) => {
+      }, ...list.map((task: any, index: any) => {
         return {
           name: `${task.done ? '[√]' : '[×]'} ${index + 1} ${task.title}`,
           value: index.toString()
@@ -118,7 +118,7 @@ function printTasks (list) {
         value: -2
       }]
     }])
-    .then((answers) => {
+    .then((answers: any) => {
       const index = Number(answers.index)
       askForAction(index, list)
     })

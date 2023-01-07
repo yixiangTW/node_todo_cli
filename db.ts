@@ -8,7 +8,7 @@ const db = {
     return new Promise((resolve, reject) => {
       fs.readFile(filePath, {
         flag: 'a+'
-      }, (error, data) => {
+      }, (error: any, data: any) => {
         if (error) {
           return reject(error)
         }
@@ -22,9 +22,9 @@ const db = {
       })
     })
   },
-  write (list, filePath = dbPath) {
+  write (list: any[], filePath = dbPath) {
     return new Promise((resolve, reject) => {
-      fs.writeFile(filePath, JSON.stringify(list), (error) => {
+      fs.writeFile(filePath, JSON.stringify(list), (error: any) => {
         if (error) {
           return reject(error)
         }
