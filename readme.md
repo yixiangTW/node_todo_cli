@@ -1,3 +1,8 @@
+### todo cli
+
+install `npm i new_node_todo_cli -g`
+
+```
 todo -h
 
 Usage: cli [options] [command]   
@@ -12,5 +17,6 @@ Commands:
   show            show all tasks   
   help [command]  display help for command
 
-
-npm run test 运行测试
+```
+test: `npm run test`   
+build: `npm run build`

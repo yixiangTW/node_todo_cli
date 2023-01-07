@@ -1,6 +1,6 @@
 {
   "name": "new_node_todo_cli",
-  "version": "3.3.0",
+  "version": "3.3.3",
   "description": "A todo list cli",
   "repository": {
     "type": "git",
