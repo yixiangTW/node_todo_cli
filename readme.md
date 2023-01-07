@@ -11,3 +11,6 @@ Commands:
   clear           clear all tasks   
   show            show all tasks   
   help [command]  display help for command
+
+
+npm run test 运行测试
